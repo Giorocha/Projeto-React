@@ -8,9 +8,9 @@ import logo from '../../assets/img/icon-login.png'
 import Rodape from '../../components/Rodape';
 
 // defnir uma className onde meu categorias ta herdando component
-class Categorias extends Component{
 
-    constructor(){
+class Categorias extends Component{
+constructor(){
         // tudo que tiver em component sera passado p ca
         super();
         this.state = {
