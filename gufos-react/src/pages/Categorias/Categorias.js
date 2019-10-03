@@ -6,6 +6,7 @@ import logo from '../../assets/img/icon-login.png'
 
 // component
 import Rodape from '../../components/Rodape';
+import Titulo from "../../components/Titulo";
 
 // defnir uma className onde meu categorias ta herdando component
 
@@ -57,7 +58,7 @@ constructor(){
           "Content-Type": "application/json"
         }
       })
-      .then(response => this.listarCategorias())
+      .then(response => this.listarCategoria())
       .catch(erro => console.log(erro));
 
     }
@@ -86,7 +87,7 @@ constructor(){
 
       <main className="conteudoPrincipal">
         <section className="conteudoPrincipal-cadastro">
-          <h1 className="conteudoPrincipal-cadastro-titulo">Categorias</h1>
+          <Titulo titulo="Categorias"/>
           <div className="container" id="conteudoPrincipal-lista">
             <table id="tabela-lista">
               <thead>

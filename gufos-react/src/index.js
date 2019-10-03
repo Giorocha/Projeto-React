@@ -8,6 +8,7 @@ import App from './pages/Home/App.js';
 import Categorias from './pages/Categorias/Categorias';
 import NaoEncontrado from './pages/NaoEncontado/NaoEncontrado';
 import Login from './pages/Login/Login';
+import Eventos from './pages/Eventos/Eventos'
 
 import * as serviceWorker from './serviceWorker';
 
@@ -35,6 +36,7 @@ const routing = (
             <Switch>
                 <Route exact path='/' component={App}/>
                 <RotaPrivada path='/categorias' component={Categorias}/>
+                <RotaPrivada path='/eventos' component={Eventos}/>
                 <Route path='/login' component={Login}/>
                 <Route component={NaoEncontrado}/>
             </Switch>
