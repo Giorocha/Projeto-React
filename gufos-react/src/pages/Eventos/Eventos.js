@@ -11,7 +11,14 @@ export default class Eventos extends Component {
         super();
         this.state = {
             listaE: [],
-            idCategoriaNavigation: []
+            idCategoriaNavigation: [],
+
+            titulo: "",
+            localizacao: "",
+            data: "",
+            ativo: "",
+            idCategoria: "",
+            descricao: ""
         }
     }
 
@@ -26,20 +33,76 @@ export default class Eventos extends Component {
         Axios.get('http://192.168.7.85:5000/api/eventos')
             .then(response => {
                 this.setState({ listaE: response.data })
+                console.log(response.data)
             })
     }
 
     listarCategorias = () => {
         Axios.get('http://192.168.7.85:5000/api/categorias')
             .then(response => {
-                console.log(response.data) 
-                
+                // console.log(response.data)
+
                 this.setState({ idCategoriaNavigation: response.data })
-                console.log(this.state)
             })
     }
 
-       render() {
+    cadastrarEvento = (event) => {
+        event.preventDefault();
+        console.log(this.state);
+
+        fetch('http://192.168.7.85:5000/api/eventos', {
+            method: "POST",
+            body: JSON.stringify({
+                    titulo: this.state.titulo,
+                    descricao:this.state.descricao,
+                    dataEvento: this.state.data,
+                    ativo: this.state.ativo,
+                    localizacao: this.state.localizacao,
+                    idCategoria: this.state.idCategoria
+            }),
+
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+                .then(respose => this.listarEventos())
+                .catch(error => console.log(error))
+        }
+
+
+    tituloEvento = (event) => {
+        this.setState({ titulo: event.target.value });
+    }
+
+    localizacaoEvento = (event) => {
+        this.setState({ localizacao: event.target.value });
+    }
+
+    dataEvento = (event) => {
+        this.setState({ data: event.target.value });
+    }
+
+    ativoEvento = (event) => {
+        if (event.target.value === "true") {
+            this.setState({ ativo: true });
+
+        } else {
+            this.setState({ ativo: false });
+
+        }
+    }
+
+    categoriaEvento = (event) => {
+        // console.log(event.target.value)
+        this.setState({ idCategoria: Number(event.target.value) });
+        // console.log(this.state)
+    }
+
+    descricaoEvento = (event) => {
+        this.setState({ descricao: event.target.value });
+    }
+
+    render() {
         return (
             <div>
                 <header className="cabecalhoPrincipal">
@@ -55,7 +118,7 @@ export default class Eventos extends Component {
                 <main className="conteudoPrincipal">
                     <section className="conteudoPrincipal-cadastro">
                         {/* <h1 className="conteudoPrincipal-cadastro-titulo">Eventos</h1> */}
-                        <Titulo titulo="Eventos"/>
+                        <Titulo titulo="Eventos" />
                         <div className="container" id="conteudoPrincipal-lista">
 
                             <table id="tabela-lista">
@@ -72,12 +135,12 @@ export default class Eventos extends Component {
                                 <tbody id="tabela-lista-corpo">
                                     {this.state.listaE.map(element => {
                                         return (
-                                            <tr>
+                                            <tr key={element.idEvento}>
                                                 <td>{element.idEvento}</td>
                                                 <td>{element.titulo}</td>
                                                 <td>{element.dataEvento}</td>
                                                 <td>{(element.ativo) ? 'sim' : 'não'}</td>
-                                                <td>{element.idCategoriaNavigation.nome}</td>
+                                                <td>{(element.idCategoriaNavigation != undefined) ? element.idCategoriaNavigation.nome : "Não possui categoria"}</td>
                                             </tr>
                                         )
                                     })}
@@ -86,33 +149,39 @@ export default class Eventos extends Component {
 
                         </div>
 
-                        <div className="container" id="conteudoPrincipal-cadastro">
+                        <div className="container" id="conteudoPrincipal-cadastro" >
                             <h2 className="conteudoPrincipal-cadastro-titulo">Cadastrar Evento</h2>
                             <div className="container">
 
-                                <input type="text" id="evento__titulo" placeholder="título do evento" />
+                                <input type="text" id="evento__titulo" placeholder="título do evento" value={this.state.titulo} onChange={this.tituloEvento} />
 
-                                <input type="text" id="evento__localizacao" placeholder="localização" />
+                                <input type="text" id="evento__localizacao" placeholder="localização" value={this.state.localizacao} onChange={this.localizacaoEvento} />
 
-                                <input type="text" id="evento__data" placeholder="dd/MM/yyyy" />
+                                <input type="date" id="evento__data" placeholder="dd/MM/yyyy" value={this.state.data} onChange={this.dataEvento} />
 
-                                <select id="option__acessolivre">
-                                    <option value="1">Ativo</option>
-                                    <option value="0">Desativo</option>
+                                <select id="option__acessolivre" onChange={this.ativoEvento}>
+                                    <option value="null">Selecione</option>
+                                    <option value="true">Ativo</option>
+                                    <option value="false">Desativo</option>
                                 </select>
 
-                                <select id="option__tipoevento">                             
+                                <select id="option__tipoevento" onChange={this.categoriaEvento}>
+                                <option value="null">Selecione</option>
+
                                     {this.state.idCategoriaNavigation.map(element => {
                                         return (
-                                            <option>{element.nome}</option>
+                                            <option value={element.idCategoria} key={element.idCategoria}>{element.nome}</option>
                                         )
                                     })}
                                 </select>
-                                <textarea rows="3" cols="50" placeholder="descrição do evento" id="evento__descricao"></textarea>
+                                <textarea rows="3" cols="50" placeholder="descrição do evento" id="evento__descricao" value={this.state.descricao} onChange={this.descricaoEvento}>
+                                </textarea >
 
                             </div>
-                            <button className="conteudoPrincipal-btn conteudoPrincipal-btn-cadastro">Cadastrar</button>
+                            <button className="conteudoPrincipal-btn conteudoPrincipal-btn-cadastro" onClick={this.cadastrarEvento}>Cadastrar</button>
+
                         </div>
+
                     </section>
                 </main>
                 <Rodape />
