@@ -34,7 +34,7 @@ export default class App extends Component {
       .then(data => {
         if (data.status == 200) {
           localStorage.setItem("usuario-opflix", data.data.token);
-          this.props.history.push('/Home')
+          this.props.history.push('/HomeClie')
         } else {
           console.log("Errou!")
         }
@@ -64,19 +64,19 @@ export default class App extends Component {
             </div>
 
             <button className="button">Login</button>
-            <p>Cadastrar</p>
+            <a href="/Cadastro" className="cadastrar"><p> Cadastrar-se </p></a>
             <p style={{ color: "red", textAlign: "center" }}>
               {this.state.erro}
             </p>
 
 
           </form>
-
+          <div className="footer">
+            
           <Rodape />
+          </div>
         </div>
       </div>
-
-
     );
   }
 

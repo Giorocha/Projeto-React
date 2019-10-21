@@ -5,7 +5,11 @@ import * as serviceWorker from './serviceWorker';
 
 //pages
 import App from './pages/Login/App.js';
-import Home from './pages/Home/Home.js';
+import HomeAdm from './pages/HomeAdm/HomeAdm.js'
+import HomeClie from './pages/HomeClie/HomeClie.js'
+import Cadastro from './pages/Cadastro/Cadastro.js'
+import NaoEncontrado from './pages/NaoEncontrado/NaoEncontrado.js';
+
 
 import { Route, Link, BrowserRouter as Router, Switch, Redirect} from "react-router-dom";
 
@@ -25,12 +29,30 @@ const RotaPrivada = ({component: Component}) => (
     />
 )
 
+const RotaAdm = ({component: Component}) => (
+    <Route 
+        render={ props => 
+            localStorage.getItem("usuario-opflix") !== null  ?
+            (
+                <Component {...props} />
+            )  :  (
+                <Redirect 
+                    to={{pathname: "/Login", state: {from: props.location}}}
+                />
+            )
+        }
+    />
+)
+
 const routing = (
     <Router>
         <div>
             <Switch>
                 <Route exact path='/' component={App}/>
-                <RotaPrivada path='/Home' component={Home}/>
+                <RotaAdm path='/HomeAdm' component={HomeAdm}/>
+                <RotaPrivada path='/HomeClie' component={HomeClie}/>
+                <Route exact path='/Cadastro' component={Cadastro}/>
+                <Route component={NaoEncontrado}/>
 
             </Switch>
         </div>

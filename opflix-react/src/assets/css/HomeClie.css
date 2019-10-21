@@ -1,26 +1,25 @@
-.paginaAdministrador{
+.paginaCliente{
     background-color: #000;
+    height: 1150px;
 }
 .navbar {
     width: 100%;
     background-color: #555;
     overflow: auto;
   }
- 
-  .footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    bottom: "50px";
-    color: white;
-    background-color: "black";
-    display: "flex";
-    padding: "15px";
-    justify-content: "space-around";
-    border: "1px solid #ddd";
-  }
-  
+.footer{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  bottom: "50px";
+  color: white;
+  background-color: "black";
+  display: "flex";
+  padding: "15px";
+  justify-content: "space-around";
+  border: "1px solid #ddd";
+}
   .navbar a {
     float: left;
     padding: 12px;
@@ -58,14 +57,6 @@
    
   }
 
-.tabelaGeneros{
-    border-collapse: collapse;
-    border-spacing: 0;
-    width:  50%;
-    justify-items: center;
-    border: 1px solid #ddd;
-    color: #fff;
-}
 
   th, td {
     text-align: center;
