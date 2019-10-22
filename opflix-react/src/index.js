@@ -2,58 +2,76 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
+import { parseJwt } from './services/auth'
+
 
 //pages
 import App from './pages/Login/App.js';
-import HomeAdm from './pages/HomeAdm/HomeAdm.js'
-import HomeClie from './pages/HomeClie/HomeClie.js'
-import Cadastro from './pages/Cadastro/Cadastro.js'
+import Administrador from   './pages/HomeAdm/Administrador.js';
+import HomeClie from    './pages/HomeClie/HomeClie.js';
+import Cadastro from    './pages/Cadastro/Cadastro.js';
 import NaoEncontrado from './pages/NaoEncontrado/NaoEncontrado.js';
 
 
-import { Route, Link, BrowserRouter as Router, Switch, Redirect} from "react-router-dom";
+import { Route, BrowserRouter as Router, Switch, Redirect } from "react-router-dom";
 
+// const RotaAdmin = ({ component: Component }) => (
+//     <Router
+//         render={props =>
+//             localStorage.getItem("usuario-opflix") !== null && parseJwt().Permissao === 'ADMINISTRADOR' ?
+//                 (
+//                     <Component {...props} />
+//                 ) : (
+//                     <Redirect
+//                         to={{ pathname: "/", state: { from: props.location } }}
+//                     />
+//                 )
+//         }
 
-const RotaPrivada = ({component: Component}) => (
-    <Route 
-        render={ props => 
-            localStorage.getItem("usuario-opflix") !== null  ?
-            (
-                <Component {...props} />
-            )  :  (
-                <Redirect 
-                    to={{pathname: "/Login", state: {from: props.location}}}
-                />
-            )
+//     />
+// );
+
+const RotaCliente = ({ component: Component }) => (
+    <Route
+        render={props =>
+            localStorage.getItem("usuario-opflix") !== null && parseJwt().Permissao !== 'ADMINISTRADOR' ?
+                (
+                    <Component {...props} />
+
+                ) : (
+                    <Redirect
+                        to={{ pathname: "/", state: { from: props.location } }}
+                    />
+                )
         }
     />
-)
+);
 
-const RotaAdm = ({component: Component}) => (
-    <Route 
-        render={ props => 
-            localStorage.getItem("usuario-opflix") !== null  ?
-            (
-                <Component {...props} />
-            )  :  (
-                <Redirect 
-                    to={{pathname: "/Login", state: {from: props.location}}}
-                />
-            )
+const RotaAdmin = ({ component: Component }) => (
+    <Route
+        render={props =>
+            localStorage.getItem("usuario-opflix") !== null && parseJwt().Permissao !== 'CLIENTE' ?
+                (
+                    <Component {...props} />
+
+                ) : (
+                    <Redirect
+                        to={{ pathname: "/", state: { from: props.location } }}
+                    />
+                )
         }
     />
-)
+);
 
 const routing = (
     <Router>
         <div>
             <Switch>
-                <Route exact path='/' component={App}/>
-                <RotaAdm path='/HomeAdm' component={HomeAdm}/>
-                <RotaPrivada path='/HomeClie' component={HomeClie}/>
-                <Route exact path='/Cadastro' component={Cadastro}/>
-                <Route component={NaoEncontrado}/>
-
+                <Route exact path='/' component={App} />
+                <RotaAdmin path='/HomeAdm' component={Administrador} />
+                <RotaCliente path='/HomeClie' component={HomeClie} />
+                <Route exact path='/Cadastro' component={Cadastro} />
+                <Route component={NaoEncontrado} />
             </Switch>
         </div>
     </Router>

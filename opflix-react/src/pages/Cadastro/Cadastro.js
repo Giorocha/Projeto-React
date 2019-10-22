@@ -1,7 +1,9 @@
 
 import React, { Component } from 'react'
-import '../../assets/css/App.css';
+import '../../assets/css/Cadastro.css';
 import Axios from 'axios';
+
+import Rodape from '../../components/Rodape'
 
 export default class Cadastro extends Component {
 
@@ -56,17 +58,18 @@ export default class Cadastro extends Component {
             <section className='container'>
 
                 <div className='paginaCadastro'>
-
                     <div className='titulo'>
    
                     </div>
-                    <a href="/" className="voltar"><p> Voltar para o login </p></a>
+                    <a href="/" className="voltarr"><p> Voltar para o login </p></a>
 
                     <div className='formCadastro'>
-                        <form onSubmit={this.cadastrarUsuario}>
+                        <form onSubmit={this.cadastrarUsuario} className="tudo1">
+                        <h1 className="cadastro">Cadastrar</h1>
                             <div className='item'>
+                            <label className="name1" for="username" >Username</label>
                                 <input className='input'
-                                    placeholder='Nome'
+                                required="required"
                                     type='text'
                                     onChange={this.setarEstadoNome}
                                     value={this.state.nome}
@@ -74,8 +77,9 @@ export default class Cadastro extends Component {
                             </div>
 
                             <div className='item'>
+                            <label className="name1" for="email" >Email</label>
                                 <input className='input'
-                                    placeholder='Email'
+                                required="required"
                                     type='text'
                                     onChange={this.setarEstadoEmail}
                                     value={this.state.email}
@@ -83,8 +87,9 @@ export default class Cadastro extends Component {
                             </div>
 
                             <div className='item'>
+                            <label className="name1" for="senha" >Senha</label>
                                 <input className='input' 
-                                    placeholder='Senha'
+                                required="required"
                                     type='password'
                                     onChange={this.setarEstadoSenha}
                                     value={this.state.senha}                                    
@@ -92,7 +97,7 @@ export default class Cadastro extends Component {
                             </div>
 
                             <div className='loginButton'>
-                                <button href="/" className='button'>Cadastrar </button>
+                                <button href="/" className='button1'>Cadastrar </button>
                             </div>
 
                             <p 
@@ -102,6 +107,9 @@ export default class Cadastro extends Component {
                                 {this.state.erro}
                             </p>
                         </form>
+                    </div>
+                    <div className="footer">
+                        <Rodape/>
                     </div>
                 </div>
             </section>

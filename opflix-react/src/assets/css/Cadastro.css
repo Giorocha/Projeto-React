@@ -1,0 +1,63 @@
+* {
+    margin: 0;
+    padding: 0;
+  
+  }
+  
+.container{
+      background-image: url(../img/cinema2.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      height:100vh;
+}
+
+.cadastro{
+    color: #000;
+}
+  
+.tudo1{
+  
+    background-color: rgba(255, 255, 255, 0.685);
+    margin: 5em 10em;
+    font-size: 20px;
+}
+
+.voltarr {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-size: 1.3em;
+}
+
+.name1{
+    margin:0 33%;
+    color: #9D9999;
+    display: flex;
+
+}
+form{
+    padding: 50px;
+    text-align: center;
+    
+}
+input{
+    margin: 5px;
+    border-radius: 5px;
+    height: 25px;
+    width:22vw;
+}
+.button1{
+
+        background:rgba(3, 3, 3, 0.685);
+        border:0;
+        color:#fff;
+        padding:10px;
+        font-size:20px;
+        width:330px;
+        margin:20px auto;
+        display:block;
+        cursor:pointer;
+      }
+
+ .button1:active{
+     background:#27ae60;
+ }

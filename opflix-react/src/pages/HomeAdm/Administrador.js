@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
+
 import Axios from 'axios';
 import Rodape from '../../components/Rodape.js'
 
 import '../../assets/css/Home.css'
-import { async } from 'q';
 
-export default class HomeAdm extends Component {
+
+export default class Administrador extends Component {
 
     constructor() {
         super();
@@ -36,7 +36,7 @@ export default class HomeAdm extends Component {
         this.listarModelos();
     }
 
-    listarLancamentos =  async () => {
+    listarLancamentos = () => {
         fetch("http://192.168.4.233:5000/api/lancamentos", {
             method: 'GET',
             headers: { 'Authorization': 'Bearer ' + localStorage.getItem('usuario-opflix') }
@@ -174,7 +174,7 @@ export default class HomeAdm extends Component {
                     <div className='adm'>
 
                         <div className='tabelaLançamentos'>
-                            <h2>Lançamentos</h2>
+                            <h2 style={{color: "white"}}>Lançamentos</h2>
 
                             <table className='tabelaLista'>
                                 <thead>
@@ -216,19 +216,19 @@ export default class HomeAdm extends Component {
                         </div>
 
                         <div className='cadastroLancamento'>
-                            <h2>Cadastrar Lançamento</h2>
+                            <h2 style={{color: "white"}}>Cadastrar Lançamento</h2>
                             <form >
                                 <div>
-                                    <h3>Titulo</h3>
+                                    <h3 style={{color: "white"}}>Titulo</h3>
                                     <input className="titulo" type="text" onChange={this.tituloLancamento} value={this.state.titulo} />
 
-                                    <h3>Sinopse</h3>
+                                    <h3 style={{color: "white"}}>Sinopse</h3>
                                     <input className="sinopse" type="text" onChange={this.sinopseLancamento} value={this.state.sinopse} />
 
-                                    <h3>Data de lançamento</h3>
+                                    <h3 style={{color: "white"}}>Data de lançamento</h3>
                                     <input className="dataLancamento" type="dateTime" onChange={this.dataLancamento} value={this.state.dataLancamento} />
 
-                                    <h3>Gênero</h3>
+                                    <h3 style={{color: "white"}}>Gênero</h3>
                                     <select className='genero' onChange={this.categoriaLancamento}>
                                         <option value='null'>Selecione</option>
                                         {this.state.idCategoriaNavigation.map(element => {
@@ -238,7 +238,7 @@ export default class HomeAdm extends Component {
                                         })}
                                     </select>
 
-                                    <h3>Plataforma</h3>
+                                    <h3 style={{color: "white"}}>Plataforma</h3>
                                     <select className='plataforma' onChange={this.plataformaLancamento}>
                                         <option value='null'>Selecione</option>
                                         {this.state.idPlataformaNavigation.map(element => {
@@ -248,10 +248,10 @@ export default class HomeAdm extends Component {
                                         })}
                                     </select>
 
-                                    <h3>Duração em min</h3>
+                                    <h3 style={{color: "white"}}>Duração em min</h3>
                                     <input className="duracao" type="number" onChange={this.duracaoMinLancamento} value={this.state.duracaoMin} />
 
-                                    <h3>Classificação</h3>
+                                    <h3 style={{color: "white"}}>Classificação</h3>
                                     <select className='classificacao' onChange={this.classificacaoLancamento}>
                                         <option value='null'>Selecione</option>
                                         {this.state.idClassificacaoNavigation.map(element => {
@@ -261,7 +261,7 @@ export default class HomeAdm extends Component {
                                         })}
                                     </select>
 
-                                    <h3>Modelo</h3>
+                                    <h3 style={{color: "white"}}>Modelo</h3>
                                     <select className='modelo' onChange={this.tipoLancamento}>
                                         <option value='null'>Selecione</option>
                                         {this.state.idTipoLancamentoNavigation.map(element => {

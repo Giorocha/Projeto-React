@@ -1,10 +1,11 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
-import '../../assets/css/HomeClie.css'
 import Rodape from '../../components/Rodape.js'
+import '../../assets/css/HomeClie.css'
+
 export default class HomeClie extends Component {
 
-    constructor(){
+    constructor() {
         super();
         this.state = {
             listaLancamento: [],
@@ -24,7 +25,7 @@ export default class HomeClie extends Component {
         }
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.listarLancamentos();
     }
 
@@ -36,19 +37,17 @@ export default class HomeClie extends Component {
             .then(respose => respose.json())
             .then(data => this.setState({ listaLancamento: data }))
             .catch(error => console.log(error))
-            // console.log(this.state.listaLancamento, "olá");
+        // console.log(this.state.listaLancamento, "olá");
     }
 
-    render(){
-        return(
+    render() {
+        return (
             <div>
                 <body className='paginaCliente'>
                     <div class="navbar">
                         <a class="active" href="/HomeClie">Home</a>
                         <a href="/">Deslogar</a>
                     </div>
-
-
 
                     <div className='tabelaLançamentos'>
                         <h2>Lançamentos</h2>
@@ -92,9 +91,8 @@ export default class HomeClie extends Component {
                         </table>
                     </div>
                 </body>
-                <div className="footer"> 
+                <div className="footer">
 
-                <Rodape/>
                 </div>
             </div>
         )

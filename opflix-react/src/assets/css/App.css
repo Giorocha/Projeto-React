@@ -11,6 +11,10 @@
     height:100vh;
 }
 
+.voltar {
+    color: rgba(255, 255, 255, 0);
+}
+
 
 .name{
     color: #9D9999;
@@ -28,10 +32,32 @@
 
 .tudo{
     background-color: rgba(255, 255, 255, 0.685);
-    margin: 0 3em;
+    margin: 10em 10em;
     border: 1px dotted #0000;
 
 }
-h2, h3{
-    color: #fff;
+input{
+    margin: 5px;
+    border-radius: 5px;
+    height: 25px;
+    width:22vw;
+}
+.cadastrar{
+    text-decoration: none;
+}
+.button{
+
+    background:rgba(3, 3, 3, 0.685);
+    border:0;
+    color:#fff;
+    padding:10px;
+    font-size:20px;
+    width:330px;
+    margin:20px auto;
+    display:block;
+    cursor:pointer;
+  }
+
+.button:active{
+ background:#27ae60;
 }
