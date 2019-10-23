@@ -5,6 +5,8 @@ import Axios from 'axios';
 
 import Rodape from '../../components/Rodape'
 
+import Logo from '../../assets/img/opflix.nome.png'
+
 export default class Cadastro extends Component {
 
     constructor() {
@@ -61,14 +63,14 @@ export default class Cadastro extends Component {
                     <div className='titulo'>
    
                     </div>
-                    <a href="/" className="voltarr"><p> Voltar para o login </p></a>
+                    <img className="logo"src={Logo}></img>
 
                     <div className='formCadastro'>
                         <form onSubmit={this.cadastrarUsuario} className="tudo1">
                         <h1 className="cadastro">Cadastrar</h1>
                             <div className='item'>
                             <label className="name1" for="username" >Username</label>
-                                <input className='input'
+                                <input className='input1'
                                 required="required"
                                     type='text'
                                     onChange={this.setarEstadoNome}
@@ -78,7 +80,7 @@ export default class Cadastro extends Component {
 
                             <div className='item'>
                             <label className="name1" for="email" >Email</label>
-                                <input className='input'
+                                <input className='input1'
                                 required="required"
                                     type='text'
                                     onChange={this.setarEstadoEmail}
@@ -88,7 +90,7 @@ export default class Cadastro extends Component {
 
                             <div className='item'>
                             <label className="name1" for="senha" >Senha</label>
-                                <input className='input' 
+                                <input className='input1' 
                                 required="required"
                                     type='password'
                                     onChange={this.setarEstadoSenha}
@@ -99,6 +101,7 @@ export default class Cadastro extends Component {
                             <div className='loginButton'>
                                 <button href="/" className='button1'>Cadastrar </button>
                             </div>
+                            <a href="/" className="voltarr"><p> Voltar para o login </p></a>
 
                             <p 
                                 className="text__login"

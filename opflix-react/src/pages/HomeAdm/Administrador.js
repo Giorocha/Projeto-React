@@ -5,6 +5,7 @@ import Rodape from '../../components/Rodape.js'
 
 import '../../assets/css/Home.css'
 
+import Logo from '../../assets/img/opflix.nome.png'
 
 export default class Administrador extends Component {
 
@@ -25,6 +26,7 @@ export default class Administrador extends Component {
             duracaoMin: "",
             idClassificacao: "",
             idTipoLancamento: "",
+            imagem: "",
         }
     }
 
@@ -126,6 +128,11 @@ export default class Administrador extends Component {
         this.setState({ idTipoLancamento: Number(event.target.value) });
     }
 
+    imagemLancamento = (event) => {
+        this.setState({ imagem: event.target.value });
+        console.log(this.state.imagem)
+    }
+
 
 
     cadastrarLancamento = (event) => {
@@ -136,7 +143,7 @@ export default class Administrador extends Component {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + localStorage.getItem('usuario-opflix')
+                'Authorization': 'Bearer ' + localStorage.getItem("usuario-opflix")
             },
             body: JSON.stringify({
                 titulo: this.state.titulo,
@@ -146,7 +153,8 @@ export default class Administrador extends Component {
                 idPlataforma: this.state.idPlataforma,
                 duracaoMin: this.state.duracaoMin,
                 idClassificao: this.state.idClassificacao,
-                idTipoLancamento: this.state.idTipoLancamento
+                idTipoLancamento: this.state.idTipoLancamento,
+                imagem: this.state.imagem,
             }),
         })
             .then(response => this.listarLancamentos())
@@ -158,11 +166,10 @@ export default class Administrador extends Component {
         return (
             <div>
                 <body className='paginaAdministrador'>
-                    <div class="navbar">
-                        <a class="active" href="#">Home</a>
-                        <a href="/Estatisticas">Estatisticas</a>
-                        <a href="#">Contact</a>
+                    <div className="navbar">
+                        <img className="logo" src={Logo}></img>
                         <a href="/">Deslogar</a>
+                        <a class="active" href="#">Home</a>
                     </div>
 
                     <header className='nav'>
@@ -217,7 +224,7 @@ export default class Administrador extends Component {
 
                         <div className='cadastroLancamento'>
                             <h2 style={{color: "white"}}>Cadastrar Lançamento</h2>
-                            <form >
+                            <form className="adm">
                                 <div>
                                     <h3 style={{color: "white"}}>Titulo</h3>
                                     <input className="titulo" type="text" onChange={this.tituloLancamento} value={this.state.titulo} />
@@ -270,6 +277,10 @@ export default class Administrador extends Component {
                                             )
                                         })}
                                     </select>
+
+                                    <h3 style={{color: "white"}}>Imagem (URL)</h3>
+                                    <input className="titulo" type="text" onChange={this.imagemLancamento} value={this.state.imagem} />
+
                                 </div>
 
                                 <button className='botaoCadastrar' onClick={this.cadastrarLancamento}>Cadastrar</button>
@@ -278,7 +289,7 @@ export default class Administrador extends Component {
 
 
                         <div className='tabelaCategorias'>
-                            <h2>Gêneros</h2>
+                            <h2 style={{color: "white"}}>Gêneros</h2>
 
                             <table className='tabelaGeneros'>
                                 <thead>
@@ -302,8 +313,12 @@ export default class Administrador extends Component {
                         </div>
                     </div>
                 </body>
+                <div className="footer">
+
                 <Rodape />
+                </div>
+
             </div>
         );
-    }
+    }       
 }

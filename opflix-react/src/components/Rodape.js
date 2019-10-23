@@ -4,7 +4,7 @@ export default function Rodape(){
     return(
         <footer>
         <section>
-            <div>
+            <div style={{display: "flex", justifyContent: "space-around", padding:"15px"}}>
                 <h1 style={{fontFamily: 'Fredoka One'}}>OPFLIX</h1>
                 <p>© 2019 OpFlix</p>
                 <p>Contato: Opflix@hotmail.com</p>

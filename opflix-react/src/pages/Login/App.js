@@ -4,6 +4,8 @@ import Axios from 'axios';
 import '../../assets/css/App.css';
 import { parseJwt } from '../../services/auth'
 
+import Logo from '../../assets/img/opflix.nome.png'
+
 
 
 export default class App extends Component {
@@ -90,10 +92,12 @@ export default class App extends Component {
       <section className='container'>
 
         <div className='paginaCadastro'>
+
           <div className='titulo'>
 
           </div>
           <a className="voltar"><p> . </p></a>
+          <img className="logo"src={Logo}></img>
 
           <div className='formCadastro'>
             <form onSubmit={this.efetuarLogin} className="tudo1">
@@ -101,13 +105,13 @@ export default class App extends Component {
 
          <div className="">
           <label className="name" for="username" >Username</label>
-          <input type="text" id="username" required="required" onChange={this.mudarEstadoEmail} value={this.state.email} />
+          <input className="input2" type="text" id="username" required="required" onChange={this.mudarEstadoEmail} value={this.state.email} />
         </div>
 
 
         <div className="">
-          <label className="senha" for="password">Password</label>
-           <input type="password" id="password" required="required" onChange={this.mudarEstadoSenha} value={this.state.senha} />
+          <label className="name" for="password">Password</label>
+           <input className="input2" type="password" id="password" required="required" onChange={this.mudarEstadoSenha} value={this.state.senha} />
          </div>
 
          <button className="button">Login</button>
@@ -119,6 +123,7 @@ export default class App extends Component {
 
             </form>
           </div>
+        
           <div className="footer">
             <Rodape />
           </div>

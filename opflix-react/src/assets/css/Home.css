@@ -1,50 +1,17 @@
 .paginaAdministrador{
     background-color: #000;
 }
-.navbar {
-    width: 100%;
-    background-color: #555;
-    overflow: auto;
-  }
+
+.adm{
+
+  text-align: center;
+}
  
   .footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    bottom: "50px";
     color: white;
-    background-color: "black";
-    display: "flex";
-    padding: "15px";
-    justify-content: "space-around";
-    border: "1px solid #ddd";
-  }
-  
-  .navbar a {
-    float: left;
-    padding: 12px;
-    color: white;
-    text-decoration: none;
-    font-size: 17px;
-    width: 23%; 
-    text-align: center; 
-  }
-  .navbar a:hover {
-    background-color: #000;
-  }
-  
-  .navbar a.active {
-    background-color: #4CAF50;
-  }
-  
-  @media screen and (max-width: 500px) {
-    .navbar a {
-      float: none;
-      display: block;
-      width: 100%;
-      text-align: left; 
-    }
+    background-color: black;
+    padding: 15px;
+    border: 1px solid #ddd;
   }
 
   .tabelaLista{
@@ -55,13 +22,13 @@
     border: 1px solid #ddd;
     color: #fff;
     margin-right: 30%;
-   
+
   }
 
 .tabelaGeneros{
     border-collapse: collapse;
     border-spacing: 0;
-    width:  50%;
+    width:  100%;
     justify-items: center;
     border: 1px solid #ddd;
     color: #fff;

@@ -17,6 +17,7 @@
 
 
 .name{
+    margin:0 33%;
     color: #9D9999;
     display: flex;
 }

@@ -14,18 +14,19 @@
 .cadastro{
     color: #000;
 }
-  
+
+
 .tudo1{
   
     background-color: rgba(255, 255, 255, 0.685);
-    margin: 5em 10em;
+    margin: 3em 10em;
     font-size: 20px;
 }
 
 .voltarr {
     text-decoration: none;
-    color: rgb(255, 255, 255);
-    font-size: 1.3em;
+    
+    font-size: 1em;
 }
 
 .name1{
@@ -34,12 +35,12 @@
     display: flex;
 
 }
-form{
+.formCadastro{
     padding: 50px;
     text-align: center;
     
 }
-input{
+.input1{
     margin: 5px;
     border-radius: 5px;
     height: 25px;
