@@ -66,7 +66,7 @@ export default class Cadastro extends Component {
                     <img className="logo"src={Logo}></img>
 
                     <div className='formCadastro'>
-                        <form onSubmit={this.cadastrarUsuario} className="tudo1">
+                        <form onSubmit={this.cadastrarUsuario} className="tudo">
                         <h1 className="cadastro">Cadastrar</h1>
                             <div className='item'>
                             <label className="name1" for="username" >Username</label>
@@ -111,7 +111,7 @@ export default class Cadastro extends Component {
                             </p>
                         </form>
                     </div>
-                    <div className="footer">
+                    <div className="footerC">
                         <Rodape/>
                     </div>
                 </div>

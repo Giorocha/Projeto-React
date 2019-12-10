@@ -11,6 +11,7 @@ import Administrador from   './pages/HomeAdm/Administrador.js';
 import HomeClie from    './pages/HomeClie/HomeClie.js';
 import Cadastro from    './pages/Cadastro/Cadastro.js';
 import NaoEncontrado from './pages/NaoEncontrado/NaoEncontrado.js';
+import Localizacao from './pages/Localizacao/Localizacao.js'
 
 
 import { Route, BrowserRouter as Router, Switch, Redirect } from "react-router-dom";
@@ -71,6 +72,7 @@ const routing = (
                 <RotaAdmin path='/HomeAdm' component={Administrador} />
                 <RotaCliente path='/HomeClie' component={HomeClie} />
                 <Route exact path='/Cadastro' component={Cadastro} />
+                <Route exact path='/Localizacao' component={Localizacao}/>
                 <Route component={NaoEncontrado} />
             </Switch>
         </div>

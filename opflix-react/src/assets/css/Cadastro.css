@@ -16,11 +16,21 @@
 }
 
 
-.tudo1{
-  
+.footerC{
+    color: white;
+    background-color: black;
+    padding: 15px;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+}
+
+.tudo{
     background-color: rgba(255, 255, 255, 0.685);
-    margin: 3em 10em;
+    margin: 4.1em 18em;
     font-size: 20px;
+    width: 600px;
 }
 
 .voltarr {
@@ -30,7 +40,7 @@
 }
 
 .name1{
-    margin:0 33%;
+    margin:0 23.39%;
     color: #9D9999;
     display: flex;
 

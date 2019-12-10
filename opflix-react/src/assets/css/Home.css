@@ -12,6 +12,7 @@
     background-color: black;
     padding: 15px;
     border: 1px solid #ddd;
+    
   }
 
   .tabelaLista{
@@ -37,6 +38,14 @@
   th, td {
     text-align: center;
     padding: 16px;
+  }
+
+  .titulo {
+    font-size: 1.3em;
+  }
+
+  .data {
+    font-size: 1.3em;
   }
 
   tr:nth-child(even) {

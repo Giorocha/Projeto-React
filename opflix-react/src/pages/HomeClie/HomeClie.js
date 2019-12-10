@@ -50,6 +50,7 @@ export default class HomeClie extends Component {
                     <div className="navbar">
                         <img className="logo" src={Logo}></img>
                         <a href="/">Deslogar</a>
+                        <a class="" href="/Localizacao">Localização</a>
                         <a class="active" href="/HomeClie">Home</a>
                     </div>
 
@@ -61,8 +62,9 @@ export default class HomeClie extends Component {
                                     <div className="itemF">
  
                                             <img src={element.imagem} width='144px' border='5px solid red'></img>                                     
-                                            <td>{element.titulo}</td>
-                                            <td>{element.dataLancamento}</td>  
+                                            <td className="titulo">{element.titulo}</td>
+                                            <td className="data">{element.dataLancamento}</td> 
+                                             
                                     </div>
                                     )
                                 })}

@@ -1,7 +1,6 @@
 * {
   margin: 0;
   padding: 0;
-
 }
 
 .site {
@@ -15,9 +14,14 @@
     color: rgba(255, 255, 255, 0);
 }
 
-
+.tudo1{
+    background-color: rgba(255, 255, 255, 0.685);
+    margin: 6em 18em;
+    font-size: 20px;
+    width: 600px;
+}
 .name{
-    margin:0 33%;
+    margin:0 23.39%;
     color: #9D9999;
     display: flex;
 }
@@ -31,12 +35,7 @@
     color: #000;
 }
 
-.tudo{
-    background-color: rgba(255, 255, 255, 0.685);
-    margin: 10em 10em;
-    border: 1px dotted #0000;
 
-}
 input{
     margin: 5px;
     border-radius: 5px;
@@ -62,3 +61,13 @@ input{
 .button:active{
  background:#27ae60;
 }
+
+ .footerL {
+    color: white;
+    background-color: black;
+    padding: 15px;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+  }

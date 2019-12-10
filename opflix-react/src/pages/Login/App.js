@@ -96,35 +96,32 @@ export default class App extends Component {
           <div className='titulo'>
 
           </div>
-          <a className="voltar"><p> . </p></a>
-          <img className="logo"src={Logo}></img>
+          <img className="logo" src={Logo}></img>
 
           <div className='formCadastro'>
             <form onSubmit={this.efetuarLogin} className="tudo1">
-            <h1 className="login">Logar</h1>
+              <h1 className="login">Logar</h1>
 
-         <div className="">
-          <label className="name" for="username" >Username</label>
-          <input className="input2" type="text" id="username" required="required" onChange={this.mudarEstadoEmail} value={this.state.email} />
-        </div>
-
-
-        <div className="">
-          <label className="name" for="password">Password</label>
-           <input className="input2" type="password" id="password" required="required" onChange={this.mudarEstadoSenha} value={this.state.senha} />
-         </div>
-
-         <button className="button">Login</button>
-         <a href="/Cadastro" className="cadastrar"><p> Cadastrar-se </p></a>
-         <p style={{ color: "red", textAlign: "center" }}>
-          {this.state.erro}
-        </p>
+              <div className="">
+                <label className="name" for="username" >Username</label>
+                <input className="input2" type="text" id="username" required="required" onChange={this.mudarEstadoEmail} value={this.state.email} />
+              </div>
 
 
+              <div className="">
+                <label className="name" for="password">Password</label>
+                <input className="input2" type="password" id="password" required="required" onChange={this.mudarEstadoSenha} value={this.state.senha} />
+              </div>
+
+              <button className="button">Login</button>
+              <a href="/Cadastro" className="cadastrar"><p> Cadastrar-se </p></a>
+              <p style={{ color: "red", textAlign: "center" }}>
+                {this.state.erro}
+              </p>
             </form>
           </div>
-        
-          <div className="footer">
+
+          <div className="footerL">
             <Rodape />
           </div>
         </div>
